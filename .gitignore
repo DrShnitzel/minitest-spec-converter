@@ -6,3 +6,7 @@
 /pkg/
 /spec/reports/
 /tmp/
+/test/tmp/
+.byebug_history
+.ruby-version
+minitest-spec-converter-*

@@ -1,0 +1,179 @@
+describe Example do
+  before do
+    do_some_setup
+  end
+
+  def setup_some_not_minitest_setup
+    do_something
+  end
+
+  it 'complex case' do
+    _(batch.get_tpl_denial_date(tpl_denial)).must_equal("DTP*573*D8*#{date.strftime("%Y%m%d")}~")
+  end
+
+  it 'truthy' do
+    _(is_it_true?).must_equal(true)
+  end
+
+  it 'truthy 2' do
+    _(is_it_true?).must_equal(true)
+  end
+
+  it 'some value' do
+    _(expected_value).must_equal(some_value)
+  end
+
+  it 'some value 2' do
+    _(expected_value).must_equal(some_value)
+  end
+
+  it 'not equal' do
+    _(unexpected_value).wont_equal(some_value)
+  end
+
+  it 'not equal 2' do
+    _(unexpected_value).wont_equal(some_value)
+  end
+
+  it 'nil' do
+    _(some_value).must_be_nil
+  end
+
+  it 'nil 2' do
+    _(some_value).must_be_nil
+  end
+
+  it 'not nil' do
+    _(some_value).wont_be_nil
+  end
+
+  it 'not nil 2' do
+    _(some_value).wont_be_nil
+  end
+
+  it 'empty' do
+    _(some_value).must_be_empty
+  end
+
+  it 'empty 2' do
+    _(some_value).must_be_empty
+  end
+
+  it 'not empty' do
+    _(some_value).wont_be_empty
+  end
+
+  it 'not empty 2' do
+    _(some_value).wont_be_empty
+  end
+
+  it 'includes' do
+    _(collection).must_include(item)
+  end
+
+  it 'includes 2' do
+    _(collection).must_include(item)
+  end
+
+  it 'not includes' do
+    _(collection).wont_include(item)
+  end
+
+  it 'not includes 2' do
+    _(collection).wont_include(item)
+  end
+
+  it 'match' do
+    _(string).must_match(pattern)
+  end
+
+  it 'match 2' do
+    _(string).must_match(pattern)
+  end
+
+  it 'not match' do
+    _(string).wont_match(pattern)
+  end
+
+  it 'not match 2' do
+    _(string).wont_match(pattern)
+  end
+
+  it 'raises' do
+    proc {
+  method_that_raises
+  line2
+  line3
+}.must_raise(SomeException)
+  end
+
+  it 'raises 2' do
+    proc {
+  method_that_raises
+}.must_raise(SomeException)
+  end
+
+  it 'instance of' do
+    _(object).must_be_instance_of(SomeClass)
+  end
+
+  it 'instance of 2' do
+    _(object).must_be_instance_of(SomeClass)
+  end
+
+  it 'not instance of' do
+    _(object).wont_be_instance_of(SomeClass)
+  end
+
+  it 'not instance of 2' do
+    _(object).wont_be_instance_of(SomeClass)
+  end
+
+  it 'kind of' do
+    _(object).must_be_kind_of(SomeClass)
+  end
+
+  it 'kind of 2' do
+    _(object).must_be_kind_of(SomeClass)
+  end
+
+  it 'not kind of' do
+    _(object).wont_be_kind_of(SomeClass)
+  end
+
+  it 'not kind of 2' do
+    _(object).wont_be_kind_of(SomeClass)
+  end
+
+  it 'predicate' do
+    _(object).must_be(:predicate_method?)
+  end
+
+  it 'predicate 2' do
+    _(object).must_be(:predicate_method?)
+  end
+
+  it 'not predicate' do
+    _(object).wont_be(:predicate_method?)
+  end
+
+  it 'not predicate 2' do
+    _(object).wont_be(:predicate_method?)
+  end
+
+  it 'operator' do
+    _(object).must_be(:>, other_object)
+  end
+
+  it 'operator 2' do
+    _(object).must_be(:>, other_object)
+  end
+
+  it 'not operator' do
+    _(object).wont_be(:>, other_object)
+  end
+
+  it 'not operator 2' do
+    _(object).wont_be(:>, other_object)
+  end
+end

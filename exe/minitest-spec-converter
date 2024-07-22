@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
+require "minitest_spec_converter"
+
+test_dir = ARGV[0] || "./test"
+converter = MinitestSpecConverter::MassConverter.new(test_dir)
+converter.convert

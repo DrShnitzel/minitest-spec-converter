@@ -1,8 +1,46 @@
 # MinitestSpecConverter
 
-TODO: Delete this and the text below, and describe your gem
+This gem helps to convert code in minitest or mixed style to minitest spec style.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/minitest_spec_converter`. To experiment with that code, run `bin/console` for an interactive prompt.
+Before conversion:
+
+```ruby
+class TestMeme < Minitest::Test
+  def setup
+    @meme = Meme.new
+  end
+
+  def test_that_kitty_can_eat
+    assert_equal "OHAI!", @meme.i_can_has_cheezburger?
+  end
+
+  def test_that_it_will_not_blend
+    refute_match /^no/i, @meme.will_it_blend?
+  end
+end
+```
+
+After conversion:
+
+```ruby
+describe Meme do
+  before do
+    @meme = Meme.new
+  end
+
+  describe "when asked about cheeseburgers" do
+    it "must respond positively" do
+      _(@meme.i_can_has_cheezburger?).must_equal "OHAI!"
+    end
+  end
+
+  describe "when asked about blending possibilities" do
+    it "won't say no" do
+      _(@meme.will_it_blend?).wont_match /^no/i
+    end
+  end
+end
+```
 
 ## Installation
 
@@ -18,7 +56,13 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+```bash
+minitest-spec-converter --dir ./path/to/your/test/directory
+```
+
+It will format all the minitest test files in the directory to the minitest spec format. `--dir` is optional and defaults to the `./test`.
+
+it is recommended to run `rubocop --fix` after running the converter to fix the formatting issues.
 
 ## Development
 
