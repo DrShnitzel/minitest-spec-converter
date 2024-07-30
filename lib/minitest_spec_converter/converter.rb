@@ -27,7 +27,7 @@ module MinitestSpecConverter
       # Convert test method definitions to it blocks
       content.gsub!(/def test_(\w+)/) do
         method_name = $1.tr("_", " ")
-        "it '#{method_name}' do"
+        "it \"#{method_name}\" do"
       end
 
       # Convert setup to before block

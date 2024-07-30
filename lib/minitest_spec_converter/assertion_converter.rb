@@ -61,7 +61,7 @@ class AssertionRewriter < Parser::TreeRewriter
       return super
     end
 
-    replace(node.location.expression, Unparser.unparse(new_node))
+    replace(node.location.expression, custom_unparse(new_node))
   end
 
   def on_block(node)
@@ -80,7 +80,7 @@ class AssertionRewriter < Parser::TreeRewriter
 
     new_node = Parser::CurrentRuby.parse(code)
 
-    replace(node.location.expression, Unparser.unparse(new_node))
+    replace(node.location.expression, custom_unparse(new_node))
   end
 
   private
