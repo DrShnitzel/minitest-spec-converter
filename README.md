@@ -64,25 +64,6 @@ It will format all the minitest test files in the directory to the minitest spec
 
 it is recommended to run `rubocop --fix` after running the converter to fix the formatting issues.
 
-## Known issues
-
-Parser and unparser have troubles with hash vs named arguments. Such code will be converted incorrectly:
-
-```ruby
-def test_hash_vs_named_params
-  assert_equal({a: 1, b: 2}, some_method_expecting_named_params(a: 1, b: 2))
-end
-```
-
-It will be converted to:
-
-```ruby
-def "hash vs named params" do
-  assert_equal({a: 1, b: 2}, some_method_expecting_named_params({a: 1, b: 2}))
-end
-```
-
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

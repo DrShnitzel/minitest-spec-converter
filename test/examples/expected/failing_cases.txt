@@ -1,5 +1,0 @@
-class FailingCasesTest < Minitest::Test
-  it "hash vs named params" do
-    _(some_method(a: 1, b: 2)).must_equal({a: 1, b: 2})
-  end
-end

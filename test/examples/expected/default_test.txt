@@ -7,6 +7,10 @@ describe Example do
     do_something
   end
 
+  it "hash vs named params" do
+    _(named_arguments_are_not_hash(a: 1, b: 2)).must_equal({a: 1, b: 2})
+  end
+
   it "complex case" do
     _(batch.get_tpl_denial_date(tpl_denial)).must_equal("DTP*573*D8*#{date.strftime("%Y%m%d")}~")
   end

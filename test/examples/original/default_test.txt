@@ -7,6 +7,10 @@ class ExampleTest < Minitest::Test
     do_something
   end
 
+  def test_hash_vs_named_params
+    assert_equal({a: 1, b: 2}, named_arguments_are_not_hash(a: 1, b: 2))
+  end
+
   def test_complex_case
     assert_equal "DTP*573*D8*#{date.strftime("%Y%m%d")}~", batch.get_tpl_denial_date(tpl_denial)
   end
