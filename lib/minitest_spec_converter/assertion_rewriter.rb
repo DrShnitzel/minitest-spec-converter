@@ -78,7 +78,7 @@ class AssertionRewriter < Parser::TreeRewriter
     args = node.children[2..]
     args.reverse! if reverse
     obj = args.pop
-    args << Parser::AST::Node.new(value) if value
+    args = [Parser::AST::Node.new(value)] if value
     Parser::AST::Node.new(:send, [
       Parser::AST::Node.new(:send, [nil, :_, obj]), new_method, *args
     ])

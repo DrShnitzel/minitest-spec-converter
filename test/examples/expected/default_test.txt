@@ -7,8 +7,12 @@ describe Example do
     do_something
   end
 
+  it "assert with multiple args" do
+    _(ser2.eligible).must_equal(true)
+  end
+
   it "hash vs named params" do
-    _(named_arguments_are_not_hash(a: 1, b: 2)).must_equal({a: 1, b: 2})
+    _(named_arguments_are_not_hash(a: 1, b: 2)).must_equal({ a: 1, b: 2 })
   end
 
   it "complex case" do
