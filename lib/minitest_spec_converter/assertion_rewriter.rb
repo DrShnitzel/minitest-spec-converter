@@ -35,9 +35,9 @@ class AssertionRewriter < Parser::TreeRewriter
     when :refute_kind_of
       new_node = convert_to_spec_method(node, :wont_be_kind_of)
     when :assert
-      new_node = convert_to_spec_method(node, :must_equal, value: Parser::AST::Node.new(:true), reverse: true)
+      new_node = convert_to_spec_method(node, :must_equal, value: :true, reverse: true)
     when :refute
-      new_node = convert_to_spec_method(node, :must_equal, value: Parser::AST::Node.new(:false), reverse: true)
+      new_node = convert_to_spec_method(node, :must_equal, value: :false, reverse: true)
     when :assert_predicate
       new_node = convert_to_spec_predicate_method(node, :must_be)
     when :refute_predicate
@@ -46,13 +46,6 @@ class AssertionRewriter < Parser::TreeRewriter
       new_node = convert_to_spec_operator_method(node, :must_be)
     when :refute_operator
       new_node = convert_to_spec_operator_method(node, :wont_be)
-    when :assert_response
-      new_node = convert_to_must_respond_with(
-        node,
-        :must_respond_with,
-        value: Parser::AST::Node.new(:send, [nil, :response]),
-        reverse: true
-      )
     else
       return super
     end
@@ -85,19 +78,7 @@ class AssertionRewriter < Parser::TreeRewriter
     args = node.children[2..]
     args.reverse! if reverse
     obj = args.pop
-    args = [value] if value
-
-    Parser::AST::Node.new(:send, [
-      Parser::AST::Node.new(:send, [nil, :_, obj]), new_method, *args
-    ])
-  end
-
-  def convert_to_must_respond_with(node, new_method, reverse: false, value: nil)
-    args = node.children[2..]
-    args.reverse! if reverse
-    args << value if value
-    obj = args.pop
-
+    args = [Parser::AST::Node.new(value)] if value
     Parser::AST::Node.new(:send, [
       Parser::AST::Node.new(:send, [nil, :_, obj]), new_method, *args
     ])
