@@ -30,13 +30,13 @@ describe Meme do
 
   describe "when asked about cheeseburgers" do
     it "must respond positively" do
-      _(@meme.i_can_has_cheezburger?).must_equal "OHAI!"
+      _(@meme.i_can_has_cheezburger?).must_equal("OHAI!")
     end
   end
 
   describe "when asked about blending possibilities" do
     it "won't say no" do
-      _(@meme.will_it_blend?).wont_match /^no/i
+      _(@meme.will_it_blend?).wont_match(/^no/i)
     end
   end
 end
@@ -44,15 +44,9 @@ end
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
-Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```bash
+gem install minitest-spec-converter
+```
 
 ## Usage
 
