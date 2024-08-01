@@ -7,6 +7,10 @@ class ExampleTest < Minitest::Test
     do_something
   end
 
+  def test_assert_response
+    assert_response :success
+  end
+
   def test_assert_with_multiple_args
     assert ser2.eligible, "Eligible should be set to true"
   end

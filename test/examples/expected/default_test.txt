@@ -7,6 +7,10 @@ describe Example do
     do_something
   end
 
+  it "assert response" do
+    _(response).must_respond_with(:success)
+  end
+
   it "assert with multiple args" do
     _(ser2.eligible).must_equal(true)
   end
