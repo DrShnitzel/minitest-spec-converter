@@ -35,9 +35,9 @@ class AssertionRewriter < Parser::TreeRewriter
     when :refute_kind_of
       new_node = convert_to_spec_method(node, :wont_be_kind_of)
     when :assert
-      new_node = convert_to_spec_method(node, :must_equal, value: :true, reverse: true)
+      new_node = convert_to_spec_method(node, :must_equal, value: "true", reverse: true)
     when :refute
-      new_node = convert_to_spec_method(node, :must_equal, value: :false, reverse: true)
+      new_node = convert_to_spec_method(node, :must_equal, value: "false", reverse: true)
     when :assert_predicate
       new_node = convert_to_spec_predicate_method(node, :must_be)
     when :refute_predicate
